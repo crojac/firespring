@@ -115,6 +115,30 @@ function sliceData( all_results, pg )
 }
 
 /*
+ * @sum Perform single axios request to swapi.co/api/people
+ * @param {string} pg - page number
+ * @return {Object} - swapi API request object
+ *
+ */
+function getCharacters(pg)
+{
+    url = 'https://swapi.co/api/people?page=' + pg ;
+    return axios.get(url); 
+}
+
+/*
+ * @sum Perform single axios request to swapi.co/api/planets
+ * @param {string} pg - page number
+ * @return {Object} - swapi API request object
+ *
+ */
+function getPlanets(pg)
+{
+    url = 'https://swapi.co/api/planets?page=' + pg ;
+    return axios.get(url); 
+}
+
+/*
  *
  * Render index/root of application with links for tests
  *
@@ -269,18 +293,11 @@ app.get( '/planet-residents/', function (req, res) {
 
 })
 
-function getCharacters(pg)
-{
-    url = 'https://swapi.co/api/people?page=' + pg ;
-    return axios.get(url); 
-}
-
-function getPlanets(pg)
-{
-    url = 'https://swapi.co/api/planets?page=' + pg ;
-    return axios.get(url); 
-}
-
+/*
+ *
+ * Extensible get residents by planet sollution
+ *
+ */
 app.get('/extensible-residents', async function( req, res ){
 
         json_data  = {};
