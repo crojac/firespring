@@ -3,6 +3,6 @@
 
  Download and unpack. 
  
- > node app.js
+ $> node app.js
 
  Open web browser to 'localhost:3000/'
