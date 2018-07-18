@@ -269,3 +269,57 @@ app.get( '/planet-residents/', function (req, res) {
 
 })
 
+function getCharacters(pg)
+{
+    url = 'https://swapi.co/api/people?page=' + pg ;
+    return axios.get(url); 
+}
+
+function getPlanets(pg)
+{
+    url = 'https://swapi.co/api/planets?page=' + pg ;
+    return axios.get(url); 
+}
+
+app.get('/extensible-residents', async function( req, res ){
+
+        json_data  = {};
+        characters = [];
+        planets    = [];
+
+        // NOT DRY
+
+        i    = 1 
+        next = 1;
+        do{
+            response = await getCharacters(i).catch( err => { res.send('API Error'); } );
+            Array.prototype.push.apply( characters, response.data.results); 
+            if ( ! response.data.next ) { break; }
+            i++;
+        }while( next )
+
+        j    = 1
+        next = 1;
+        do{
+            response = await getPlanets(j).catch( err => { res.send('API Error'); } );
+            Array.prototype.push.apply( planets, response.data.results); 
+            if ( ! response.data.next ){ break; }
+            j++;
+        }while( next )
+
+        for( var i = 0; i < planets.length; i++ )
+        {
+            json_data[planets[i].name] = [];
+            for( var j = 0; j < characters.length; j++ )
+            {
+                if ( planets[i].url == characters[j].homeworld )
+                {
+                    json_data[planets[i].name].push( characters[j].name ); 
+                }
+            }
+        }
+
+        res.send(json_data);
+
+}); 
+
