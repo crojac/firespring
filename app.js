@@ -1,3 +1,11 @@
+/*
+ * @summary Firespring test application.
+ * @author Jeff Pabian <pabian.jeff@gmail.com>
+ * @version 1.0
+ * @date 17 JUL 2018
+ *
+ */
+
 const express    = require('express');
 const axios      = require('axios');
 const path       = require('path');
@@ -11,17 +19,14 @@ app.set( 'views', path.join(__dirname, 'views'));
 app.listen( 3000 , () => console.log('Listening on PORT 3000') );
 
 /*
- * Main starts below
- * This code is written for the specification.
- * It is not extensible.
+ *
+ * This code is written for the specification. It is not extensible.
  *
  */
 
 /*
  * @summary Normalize data object based on the functions interal specification.
- *
  * @param{Object}  data - A data object
- *
  * @return{Object} data   
  *
  */
@@ -36,9 +41,7 @@ function normalize_data(data)
 
 /*
  * @summary Custom compare on property a name.
- *
  * @param{string} prop - The property to sort by
- *
  * @return{string} - sorted value
  *
  */
