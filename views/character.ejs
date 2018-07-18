@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class='bg-light'>
+<div class='container'>
+<h1>SWAPI Character(s)</h1> 
+
+<% if ( data.length ){ %> 
+    <table class='table'>
+    <thead class='thead-light'>
+        <th scope='col'>Name</th>
+        <th scope='col'>Mass (Kg)</th>
+        <th scope='col'>Height (cm)</th>
+    </thead>
+    <tbody>
+    <% data.forEach(function(character){ %>
+        <tr>
+            <td><%=character.name%></td>
+            <td><%=character.mass%></td>
+            <td><%=character.height%></td>
+        </tr>
+    <% }) %>
+    <tbody>
+    </table>
+
+    <% if ( links && links.display ){ %>
+        <a href="<%=links.prev%>">Prev</a> | <a href="<%=links.next%>">Next</a> | <a href="/">Home</a>
+    <% }else{ %>
+        <a href="/">Home</a>
+    <% } %>
+
+<% }else{ %>
+
+    <h3>No character Found</h3>
+
+<% } %>
+
+</div>
+</body>
+</html>

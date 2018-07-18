@@ -1,0 +1,23 @@
+{
+  "name": "testapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "alphanum-sort": "^1.0.2",
+    "array-sort": "^1.0.0",
+    "axios": "^0.18.0",
+    "build-url": "^1.1.2",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "http": "0.0.0",
+    "natural-compare-lite": "^1.4.0",
+    "path": "^0.12.7",
+    "string-natural-compare": "^2.0.2"
+  }
+}
