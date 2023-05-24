@@ -1,5 +1,5 @@
 /*
- * @summary Firespring test application.
+ * @summary test application.
  * @author Jeff Pabian <pabian.jeff@gmail.com>
  * @version 1.0
  * @date 17 JUL 2018
