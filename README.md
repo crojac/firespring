@@ -1,5 +1,5 @@
 
- Firespring demo applicication written using ExpressJS framework
+ Demo applicication written using ExpressJS framework
 
  Download and unpack. 
  
